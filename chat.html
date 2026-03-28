@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Neo Chat - Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #7494c0; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+    /* ヘッダー (Discord風) */
+    header { background: #36393f; color: white; padding: 10px 20px; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    /* チャットエリア (LINE風) */
+    #chat-container { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+    .msg { max-width: 80%; padding: 10px 15px; border-radius: 18px; font-size: 15px; line-height: 1.4; position: relative; }
+    /* 自分 (右側) */
+    .my-msg { align-self: flex-end; background: #85e249; color: #000; border-top-right-radius: 2px; }
+    /* 相手 (左側) */
+    .other-msg { align-self: flex-start; background: #ffffff; color: #000; border-top-left-radius: 2px; }
+    .sender-name { font-size: 11px; color: #eee; margin-bottom: 3px; }
+    /* 入力エリア (ハイブリッド) */
+    .input-area { background: #ffffff; padding: 15px; display: flex; gap: 10px; border-top: 1px solid #ddd; }
+    input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 25px; outline: none; }
+    button { background: #5865f2; color: white; border: none; padding: 0 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="font-size: 1.2em; font-weight: bold;"># 雑談ルーム</div>
+  </header>
+
+  <div id="chat-container">
+    </div>
+
+  <div class="input-area">
+    <input type="text" id="user-name" placeholder="名前" style="width: 80px; flex: none;">
+    <input type="text" id="chat-input" placeholder="メッセージを送信">
+    <button id="send-btn">送信</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
